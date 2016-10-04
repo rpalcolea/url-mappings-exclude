@@ -2,14 +2,10 @@ package url.mappings.exclude
 
 class UrlMappings {
 
-    static mappings = {
-        "/$controller/$action?/$id?(.$format)?"{
-            constraints {
-                // apply constraints here
-            }
-        }
+    static excludes = ["/stomp/", "/stomp/*", "/topic/*"]
 
-        "/"(view:"/index")
+    static mappings = {
+        '/**'(controller:"index")
         "500"(view:'/error')
         "404"(view:'/notFound')
     }
